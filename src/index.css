@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 30% 4%;
+    --foreground: 240 10% 98%;
+
+    --card: 240 25% 8%;
+    --card-foreground: 240 10% 98%;
+
+    --popover: 240 25% 8%;
+    --popover-foreground: 240 10% 98%;
+
+    --primary: 265 85% 65%;
+    --primary-foreground: 240 10% 98%;
+
+    --secondary: 280 75% 60%;
+    --secondary-foreground: 240 10% 98%;
+
+    --muted: 240 20% 15%;
+    --muted-foreground: 240 10% 60%;
+
+    --accent: 45 90% 60%;
+    --accent-foreground: 240 30% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 240 10% 98%;
+
+    --border: 240 20% 18%;
+    --input: 240 20% 18%;
+    --ring: 265 85% 65%;
+
+    --radius: 0.75rem;
+
+    /* Space-Time Continuum Theme Colors */
+    --cosmic-purple: 265 85% 65%;
+    --nebula-pink: 320 80% 65%;
+    --galaxy-blue: 230 70% 60%;
+    --stellar-gold: 45 90% 60%;
+    --void-black: 240 30% 4%;
+    --deep-space: 240 25% 8%;
+    --space-dust: 240 20% 15%;
+    --starlight: 240 10% 98%;
+    
+    /* Cosmic Gradients */
+    --gradient-galaxy: linear-gradient(135deg, hsl(265 85% 65%) 0%, hsl(230 70% 60%) 50%, hsl(320 80% 65%) 100%);
+    --gradient-nebula: linear-gradient(180deg, hsl(265 85% 65% / 0.2) 0%, hsl(320 80% 65% / 0.1) 100%);
+    --gradient-spacetime: radial-gradient(ellipse at center, hsl(265 85% 65% / 0.15) 0%, transparent 70%);
+    --gradient-void: linear-gradient(180deg, hsl(240 30% 4%) 0%, hsl(240 25% 8%) 100%);
+    
+    /* Cosmic Glows and Shadows */
+    --glow-cosmic: 0 0 30px hsl(265 85% 65% / 0.6);
+    --glow-nebula: 0 0 40px hsl(320 80% 65% / 0.5);
+    --glow-stellar: 0 0 25px hsl(45 90% 60% / 0.7);
+    --shadow-void: 0 10px 50px -10px hsl(0 0% 0% / 0.8);
+    --shadow-cosmic: 0 0 60px hsl(265 85% 65% / 0.3);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-cosmic: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
