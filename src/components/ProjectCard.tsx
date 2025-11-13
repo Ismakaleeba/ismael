@@ -14,7 +14,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, techStack, gradient, icon: Icon, status }: ProjectCardProps) => {
   return (
-    <Card className="group relative overflow-hidden bg-card/60 backdrop-blur-md border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-[1.02] h-full flex flex-col">
+    <Card className="group relative overflow-hidden bg-card/60 backdrop-blur-md border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_40px_hsl(200_100%_45%_/_0.4)] hover:scale-[1.02] h-full flex flex-col">
       {/* Gradient Background */}
       <div className={`absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-300 ${gradient}`} />
       

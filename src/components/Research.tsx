@@ -59,7 +59,7 @@ const Research = () => {
             return (
               <Card
                 key={index}
-                className="bg-card/60 backdrop-blur-md border-border hover:border-secondary/50 transition-all duration-300 p-6 space-y-5 group animate-slide-up hover:shadow-[0_0_30px_rgba(217,70,239,0.3)] hover:scale-[1.02] flex flex-col"
+                className="bg-card/60 backdrop-blur-md border-border hover:border-secondary/50 transition-all duration-300 p-6 space-y-5 group animate-slide-up hover:shadow-[0_0_30px_hsl(195_100%_60%_/_0.3)] hover:scale-[1.02] flex flex-col"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="flex items-start justify-between gap-4">

@@ -18,7 +18,7 @@ const Index = () => {
       <Contact />
       
       {/* Footer */}
-      <footer className="border-t border-border/50 bg-card/30 backdrop-blur-sm py-12 mt-24">
+      <footer className="border-t border-primary/20 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/20 backdrop-blur-sm py-12 mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6">
             <div className="space-y-2">
@@ -26,7 +26,7 @@ const Index = () => {
                 Ismael Kaleeba
               </h3>
               <p className="text-sm text-muted-foreground">
-                High School Student • Temporal Engineering Researcher
+                Temporal Engineering Researcher • AI Systems Developer
               </p>
             </div>
             <p className="text-sm text-foreground/80 max-w-2xl mx-auto leading-relaxed">
@@ -38,7 +38,7 @@ const Index = () => {
                 © {new Date().getFullYear()} Ismael Kaleeba. All rights reserved.
               </p>
               <p className="text-xs text-muted-foreground mt-2 italic">
-                "Age doesn't limit impact. Every breakthrough starts with someone who refused to wait."
+                "The future belongs to those who can master time."
               </p>
             </div>
           </div>

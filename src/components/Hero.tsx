@@ -1,120 +1,158 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Sparkles, Target, Zap } from "lucide-react";
+import { ArrowDown, Sparkles, Target, Zap, Brain } from "lucide-react";
 
 const Hero = () => {
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Generate starfield
+  const stars = Array.from({ length: 80 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 2 + 0.5,
+    delay: Math.random() * 5,
+    duration: 3 + Math.random() * 3,
+  }));
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+      {/* Professional Space-Time Grid */}
+      <div className="absolute inset-0 space-grid opacity-[0.15]" />
       
-      {/* Enhanced Gradient Orbs with more movement */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[150px] animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[150px] animate-float" style={{ animationDelay: "-3s" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: "-6s" }} />
+      {/* Time-Continuum Nebula Clouds */}
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-primary/15 via-transparent to-transparent rounded-full blur-[200px] animate-nebula-drift" />
+      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-secondary/15 via-transparent to-transparent rounded-full blur-[180px] animate-nebula-drift" style={{ animationDelay: "-5s" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,hsl(var(--accent)/0.1),transparent)] rounded-full blur-[150px] animate-temporal-pulse" />
       
-      {/* Floating particles */}
+      {/* Orbital Time Rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-primary/10 rounded-full animate-orbit" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-secondary/8 rounded-full animate-orbit-reverse" style={{ animationDuration: "35s" }} />
+      
+      {/* Professional Starfield */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {stars.map((star) => (
           <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary/40 rounded-full animate-twinkle"
+            key={star.id}
+            className="absolute rounded-full bg-primary animate-twinkle"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              animationDelay: `${star.delay}s`,
+              animationDuration: `${star.duration}s`,
+              opacity: Math.random() * 0.5 + 0.3,
             }}
           />
         ))}
       </div>
       
-      <div className="container mx-auto px-4 z-10">
-        <div className="text-center space-y-8 animate-slide-up">
-          <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary font-medium mb-4">
-              High School Student • Temporal Engineering Researcher
-            </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-primary via-secondary via-accent to-primary bg-clip-text text-transparent animate-glow-pulse bg-[length:200%_auto]">
-                Ismael Kaleeba
-              </span>
+      {/* Time Flow Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-20 bg-gradient-to-b from-primary/30 via-primary/60 to-transparent animate-time-flow"
+            style={{
+              left: `${(i * 7) % 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${i * 1.3}s`,
+              animationDuration: `${15 + Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+      
+      <div className="container mx-auto px-4 z-10 relative">
+        <div className="text-center space-y-10 animate-slide-up">
+          <div className="space-y-8">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight leading-none text-primary">
+              Ismael Kaleeba
             </h1>
-            <div className="space-y-3">
-              <p className="text-2xl md:text-4xl text-foreground font-semibold">
-                Building the Future of Risk-Free Living
+            
+            <div className="space-y-4">
+              <p className="text-3xl md:text-5xl lg:text-6xl text-foreground font-bold tracking-tight">
+                Conquering Time Through
               </p>
-              <p className="text-lg md:text-xl text-primary/90 italic font-light">
-                Through Temporal Engineering & AI Research
+              <p className="text-3xl md:text-5xl lg:text-6xl font-bold">
+                <span className="time-gradient-text">Temporal Engineering</span>
+              </p>
+              <p className="text-xl md:text-2xl text-primary/80 italic font-light mt-4">
+                Eliminating Risk • Mastering the Continuum • Shaping the Future
               </p>
             </div>
           </div>
           
-          <p className="text-lg md:text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed font-light">
-            I'm a high school student on a mission to eliminate preventable risks from our world. 
-            By building AI systems that simulate time, predict outcomes, and explore alternate futures, 
-            I'm working toward a future where disasters are prevented before they happen.
+          <p className="text-lg md:text-xl text-foreground/85 max-w-4xl mx-auto leading-relaxed font-light px-4">
+            A dedicated researcher building AI systems that simulate time, predict outcomes, 
+            and explore alternate futures. Through temporal engineering, I'm working toward 
+            a world where preventable disasters are eliminated before they occur.
           </p>
           
-          {/* Enhanced Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-16">
-            <div className="group bg-card/60 backdrop-blur-md border border-border rounded-xl p-8 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 hover:scale-105">
-              <div className="flex items-center justify-center mb-4">
-                <div className="p-3 bg-primary/20 rounded-lg border border-primary/30">
-                  <Target className="h-6 w-6 text-primary" />
+          {/* Professional Research Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-20">
+            <div className="group relative bg-card/70 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 hover:border-primary/50 hover:shadow-[0_0_50px_hsl(200_100%_45%_/_0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative flex flex-col items-center text-center space-y-4">
+                <div className="p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 group-hover:scale-110 transition-transform">
+                  <Target className="h-8 w-8 text-primary" />
                 </div>
+                <div className="text-5xl font-bold text-primary mb-1">Mission</div>
+                <div className="text-sm text-muted-foreground font-medium">Eliminating Risk Through R&D</div>
               </div>
-              <div className="text-4xl font-bold text-primary mb-2">Mission-Driven</div>
-              <div className="text-sm text-muted-foreground">Eliminating Risk Through R&D</div>
             </div>
-            <div className="group bg-card/60 backdrop-blur-md border border-border rounded-xl p-8 hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.3)] transition-all duration-300 hover:scale-105">
-              <div className="flex items-center justify-center mb-4">
-                <div className="p-3 bg-secondary/20 rounded-lg border border-secondary/30">
-                  <Sparkles className="h-6 w-6 text-secondary" />
+            
+            <div className="group relative bg-card/70 backdrop-blur-xl border border-secondary/20 rounded-2xl p-8 hover:border-secondary/50 hover:shadow-[0_0_50px_hsl(195_100%_60%_/_0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative flex flex-col items-center text-center space-y-4">
+                <div className="p-4 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-xl border border-secondary/30 group-hover:scale-110 transition-transform">
+                  <Brain className="h-8 w-8 text-secondary" />
                 </div>
+                <div className="text-5xl font-bold text-secondary mb-1">Research</div>
+                <div className="text-sm text-muted-foreground font-medium">Temporal Intelligence Systems</div>
               </div>
-              <div className="text-4xl font-bold text-secondary mb-2">Active Research</div>
-              <div className="text-sm text-muted-foreground">Temporal Intelligence Projects</div>
             </div>
-            <div className="group bg-card/60 backdrop-blur-md border border-border rounded-xl p-8 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(250,204,21,0.3)] transition-all duration-300 hover:scale-105">
-              <div className="flex items-center justify-center mb-4">
-                <div className="p-3 bg-accent/20 rounded-lg border border-accent/30">
-                  <Zap className="h-6 w-6 text-accent" />
+            
+            <div className="group relative bg-card/70 backdrop-blur-xl border border-accent/20 rounded-2xl p-8 hover:border-accent/50 hover:shadow-[0_0_50px_hsl(195_100%_70%_/_0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative flex flex-col items-center text-center space-y-4">
+                <div className="p-4 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl border border-accent/30 group-hover:scale-110 transition-transform">
+                  <Zap className="h-8 w-8 text-accent" />
                 </div>
+                <div className="text-5xl font-bold text-accent mb-1">Innovation</div>
+                <div className="text-sm text-muted-foreground font-medium">Continuous Learning & Development</div>
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">Always Learning</div>
-              <div className="text-sm text-muted-foreground">Building & Experimenting Daily</div>
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-16">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-20">
             <Button 
               size="lg" 
               onClick={scrollToProjects}
-              className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold px-10 py-6 text-lg group shadow-lg shadow-primary/30"
+              className="bg-gradient-to-r from-primary via-secondary to-primary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-bold px-12 py-7 text-lg group shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all duration-300 hover:scale-105"
             >
-              Explore My Research
+              <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
+              Explore Research
               <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
             </Button>
             <Button 
               size="lg" 
               variant="outline"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-2 border-primary/50 hover:bg-primary/10 px-10 py-6 text-lg font-semibold"
+              className="border-2 border-primary/50 hover:bg-primary/10 hover:border-primary px-12 py-7 text-lg font-bold backdrop-blur-sm"
             >
-              Join the Mission
+              Connect
             </Button>
           </div>
         </div>
       </div>
       
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2 backdrop-blur-sm bg-card/20">
-          <div className="w-1.5 h-3 bg-primary rounded-full animate-glow-pulse" />
+      {/* Professional Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-7 h-12 border-2 border-primary/40 rounded-full flex items-start justify-center p-2.5 backdrop-blur-md bg-card/30 shadow-lg">
+          <div className="w-2 h-4 bg-gradient-to-b from-primary to-secondary rounded-full animate-glow-pulse" />
         </div>
       </div>
     </section>

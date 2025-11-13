@@ -2,68 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Professional Time-Continuum Design System
+   Colors inspired by space-time, cosmic events, and temporal mastery
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 240 30% 4%;
-    --foreground: 240 10% 98%;
+    /* Ocean & Sky Color Scheme - White Background, Ocean Blue, Sky Blue */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
 
-    --card: 240 25% 8%;
-    --card-foreground: 240 10% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 240 25% 8%;
-    --popover-foreground: 240 10% 98%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 265 85% 65%;
-    --primary-foreground: 240 10% 98%;
+    /* Primary - Ocean Blue (Deep Ocean) */
+    --primary: 200 100% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 280 75% 60%;
-    --secondary-foreground: 240 10% 98%;
+    /* Secondary - Sky Blue (Bright Sky) */
+    --secondary: 195 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 20% 15%;
-    --muted-foreground: 240 10% 60%;
+    /* Accent - Light Sky Blue */
+    --accent: 195 100% 70%;
+    --accent-foreground: 0 0% 5%;
 
-    --accent: 45 90% 60%;
-    --accent-foreground: 240 30% 4%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 240 10% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 20% 18%;
-    --input: 240 20% 18%;
-    --ring: 265 85% 65%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 200 100% 45%;
 
     --radius: 0.75rem;
 
-    /* Space-Time Continuum Theme Colors */
-    --cosmic-purple: 265 85% 65%;
-    --nebula-pink: 320 80% 65%;
-    --galaxy-blue: 230 70% 60%;
-    --stellar-gold: 45 90% 60%;
-    --void-black: 240 30% 4%;
-    --deep-space: 240 25% 8%;
-    --space-dust: 240 20% 15%;
-    --starlight: 240 10% 98%;
+    /* Ocean & Sky Theme Colors */
+    --ocean-blue: 200 100% 45%;
+    --sky-blue: 195 100% 60%;
+    --light-sky: 195 100% 70%;
+    --deep-ocean: 200 100% 35%;
+    --pure-black: 0 0% 0%;
+    --pure-white: 0 0% 100%;
+    --dark-gray: 0 0% 15%;
+    --medium-gray: 0 0% 30%;
     
-    /* Cosmic Gradients */
-    --gradient-galaxy: linear-gradient(135deg, hsl(265 85% 65%) 0%, hsl(230 70% 60%) 50%, hsl(320 80% 65%) 100%);
-    --gradient-nebula: linear-gradient(180deg, hsl(265 85% 65% / 0.2) 0%, hsl(320 80% 65% / 0.1) 100%);
-    --gradient-spacetime: radial-gradient(ellipse at center, hsl(265 85% 65% / 0.15) 0%, transparent 70%);
-    --gradient-void: linear-gradient(180deg, hsl(240 30% 4%) 0%, hsl(240 25% 8%) 100%);
+    /* Ocean & Sky Gradients */
+    --gradient-temporal: linear-gradient(135deg, hsl(200 100% 45%) 0%, hsl(195 100% 60%) 50%, hsl(195 100% 70%) 100%);
+    --gradient-spacetime: linear-gradient(180deg, hsl(200 100% 45% / 0.15) 0%, hsl(195 100% 60% / 0.1) 50%, transparent 100%);
+    --gradient-nebula: radial-gradient(ellipse at center, hsl(195 100% 60% / 0.2) 0%, hsl(200 100% 45% / 0.1) 50%, transparent 100%);
+    --gradient-time-conquer: linear-gradient(90deg, hsl(200 100% 45%) 0%, hsl(195 100% 60%) 50%, hsl(195 100% 70%) 100%);
+    --gradient-void: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-stellar: linear-gradient(135deg, hsl(200 100% 45%) 0%, hsl(195 100% 60%) 100%);
+    --gradient-ocean-sky: linear-gradient(180deg, hsl(200 100% 45%) 0%, hsl(195 100% 60%) 100%);
     
-    /* Cosmic Glows and Shadows */
-    --glow-cosmic: 0 0 30px hsl(265 85% 65% / 0.6);
-    --glow-nebula: 0 0 40px hsl(320 80% 65% / 0.5);
-    --glow-stellar: 0 0 25px hsl(45 90% 60% / 0.7);
-    --shadow-void: 0 10px 50px -10px hsl(0 0% 0% / 0.8);
-    --shadow-cosmic: 0 0 60px hsl(265 85% 65% / 0.3);
+    /* Ocean & Sky Glows */
+    --glow-temporal: 0 0 40px hsl(200 100% 45% / 0.5), 0 0 80px hsl(200 100% 45% / 0.3);
+    --glow-nebula: 0 0 50px hsl(195 100% 60% / 0.4), 0 0 100px hsl(195 100% 60% / 0.2);
+    --glow-stellar: 0 0 35px hsl(195 100% 70% / 0.6), 0 0 70px hsl(195 100% 70% / 0.3);
+    --glow-cyan: 0 0 40px hsl(195 100% 60% / 0.5);
+    --glow-magenta: 0 0 45px hsl(200 100% 45% / 0.5);
+    --shadow-void: 0 20px 60px -15px hsl(0 0% 0% / 0.1);
+    --shadow-temporal: 0 0 80px hsl(200 100% 45% / 0.15);
     
-    /* Transitions */
+    /* Professional Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-cosmic: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-temporal: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-cosmic: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -74,5 +85,54 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsl(200 100% 45% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, hsl(195 100% 60% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, hsl(195 100% 70% / 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Professional Space-Time Visual Effects */
+@layer utilities {
+  .space-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .temporal-glow {
+    box-shadow: var(--glow-temporal);
+  }
+  
+  .nebula-glow {
+    box-shadow: var(--glow-nebula);
+  }
+  
+  .stellar-glow {
+    box-shadow: var(--glow-stellar);
+  }
+  
+  .time-gradient-text {
+    background: var(--gradient-temporal);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .cosmic-border {
+    border-image: var(--gradient-temporal) 1;
+  }
+  
+  .remove-white-bg {
+    /* Helps blend white backgrounds with dark page */
+    filter: brightness(0.98) contrast(1.05);
+    mix-blend-mode: normal;
+  }
+  
+  .remove-white-bg img {
+    /* Additional filter for white background removal attempt */
+    filter: brightness(0.98) contrast(1.1) saturate(1.05);
   }
 }

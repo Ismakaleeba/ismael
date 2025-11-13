@@ -6,7 +6,7 @@ const Blog = () => {
     {
       date: "2024-12-15",
       title: "Why I Started This Journey",
-      excerpt: "After seeing preventable accidents happen around me, I realized we need better ways to predict and prevent risks. This is how a high school student decided to dedicate his life to temporal engineering.",
+      excerpt: "After seeing preventable accidents happen around me, I realized we need better ways to predict and prevent risks. This is how I decided to dedicate my life to temporal engineering.",
       category: "Reflection",
       readTime: "4 min",
     },
@@ -83,7 +83,7 @@ const Blog = () => {
           {posts.map((post, index) => (
             <Card
               key={index}
-              className="bg-card/60 backdrop-blur-md border-border hover:border-primary/50 transition-all duration-300 p-6 md:p-8 group cursor-pointer animate-slide-up hover:shadow-[0_0_30px_rgba(139,92,246,0.2)] hover:scale-[1.01]"
+              className="bg-card/60 backdrop-blur-md border-border hover:border-primary/50 transition-all duration-300 p-6 md:p-8 group cursor-pointer animate-slide-up hover:shadow-[0_0_30px_hsl(200_100%_45%_/_0.3)] hover:scale-[1.01]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4">
