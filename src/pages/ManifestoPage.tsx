@@ -1,26 +1,12 @@
 import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import CityClockSection from "@/components/CityClockSection";
 import Manifesto from "@/components/Manifesto";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Research from "@/components/Research";
-import Blog from "@/components/Blog";
-import Contact from "@/components/Contact";
 import Tagline from "@/components/Tagline";
 
-const Index = () => {
+const ManifestoPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
-      <Hero />
-      <CityClockSection />
       <Manifesto />
-      <About />
-      <Projects />
-      <Research />
-      <Blog />
-      <Contact />
       
       {/* Footer */}
       <footer className="border-t border-primary/15 bg-card/30 backdrop-blur-sm py-10 mt-20">
@@ -54,4 +40,5 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default ManifestoPage;
+

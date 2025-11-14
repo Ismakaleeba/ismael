@@ -46,20 +46,37 @@ const Projects = () => {
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold">
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              My Research Projects
-            </span>
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Building systems to eliminate risk, one simulation at a time. 
-            These projects represent my journey as a student researcher in temporal engineering.
-          </p>
-          <div className="h-1 w-32 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+        {/* Varied alignment - left aligned header */}
+        <div className="space-y-4 mb-12 max-w-4xl">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="flex-1">
+              <h2 className="text-3xl md:text-5xl font-semibold mb-3" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <span className="text-primary">
+                  Projects I'm Working On
+                </span>
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                Here's what I've been building. Each one is a step toward better predictions and safer futures.
+              </p>
+            </div>
+            {/* Side image */}
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden shadow-lg border border-primary/20 flex-shrink-0">
+              <img 
+                src="/hero-bg.jpg" 
+                alt="Projects" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+          <div className="h-0.5 w-20 bg-primary/40 rounded-full" />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Varied grid - not perfectly aligned */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -75,10 +92,25 @@ const Projects = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
-          <p className="text-muted-foreground italic">
-            Every project is a step toward understanding how to prevent disasters before they happen.
-          </p>
+        {/* Varied alignment - right aligned */}
+        <div className="mt-12 flex justify-end">
+          <div className="max-w-md">
+            <p className="text-sm text-muted-foreground text-right" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+              Still learning, still building, still figuring things out.
+            </p>
+            {/* Small decorative image */}
+            <div className="mt-4 w-24 h-16 rounded-lg overflow-hidden border border-primary/10 ml-auto">
+              <img 
+                src="/hero-bg.jpg" 
+                alt="Work in progress" 
+                className="w-full h-full object-cover opacity-50"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

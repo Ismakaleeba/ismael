@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles } from "lucide-react";
 import Tagline from "./Tagline";
@@ -6,27 +7,11 @@ import Tagline from "./Tagline";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
-      const sections = ["manifesto", "about", "projects", "research", "blog", "contact"];
-      const scrollPosition = window.scrollY + 100;
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
     
     window.addEventListener("scroll", handleScroll);
@@ -34,20 +19,14 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-    setIsMobileMenuOpen(false);
-    setActiveSection(id);
-  };
-
   const navItems = [
-    { label: "Manifesto", id: "manifesto" },
-    { label: "About", id: "about" },
-    { label: "Projects", id: "projects" },
-    { label: "Research", id: "research" },
-    { label: "Blog", id: "blog" },
-    { label: "Contact", id: "contact" },
+    { label: "Home", path: "/" },
+    { label: "Manifesto", path: "/manifesto" },
+    { label: "About", path: "/about" },
+    { label: "Projects", path: "/projects" },
+    { label: "Research", path: "/research" },
+    { label: "Blog", path: "/blog" },
+    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -55,46 +34,55 @@ const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-primary/5"
-            : "bg-transparent"
+            ? "bg-background/95 backdrop-blur-xl border-b border-border/60 shadow-xl shadow-primary/10"
+            : "bg-background/85 backdrop-blur-lg border-b border-border/30"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                setActiveSection("");
-              }}
+            <Link
+              to="/"
               className="flex flex-col items-start gap-0.5 group"
             >
-              <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent hover:opacity-80 transition-all duration-300 flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-primary group-hover:animate-twinkle" />
+              <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent hover:opacity-90 transition-all duration-300 flex items-center gap-2" style={{
+                textShadow: '0 0 15px hsl(var(--primary) / 0.4), 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 25px hsl(var(--primary) / 0.3)'
+              }}>
+                <Sparkles className="h-5 w-5 text-primary group-hover:animate-twinkle" style={{
+                  filter: 'drop-shadow(0 0 8px hsl(var(--primary) / 1)) drop-shadow(0 0 15px hsl(var(--primary) / 0.8))'
+                }} />
                 <span>Ismael Kaleeba</span>
               </div>
               {isScrolled && (
                 <Tagline variant="minimal" showIcon={false} className="hidden md:flex" />
               )}
-            </button>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-2">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    activeSection === item.id
-                      ? "text-primary"
-                      : "text-foreground/70 hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full animate-glow-pulse" />
-                  )}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                      isActive
+                        ? "text-primary"
+                        : "text-foreground hover:text-primary"
+                    }`}
+                    style={isActive ? {
+                      textShadow: '0 0 15px hsl(var(--primary) / 1), 0 0 25px hsl(var(--primary) / 0.8), 0 2px 8px rgba(0, 0, 0, 0.5)'
+                    } : {
+                      textShadow: '0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.4)'
+                    }}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full animate-glow-pulse" />
+                    )}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Mobile Menu Button */}
@@ -124,20 +112,24 @@ const Navigation = () => {
               </h2>
               <p className="text-sm text-muted-foreground">Temporal Engineering Researcher</p>
             </div>
-            {navItems.map((item, index) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`text-2xl font-semibold transition-all duration-300 ${
-                  activeSection === item.id
-                    ? "text-primary scale-110"
-                    : "text-foreground/80 hover:text-primary"
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item, index) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-2xl font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "text-primary scale-110"
+                      : "text-foreground/80 hover:text-primary"
+                  }`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <div className="mt-8 pt-8 border-t border-border w-full max-w-xs text-center">
               <p className="text-xs text-muted-foreground">
                 Building a risk-free future through temporal engineering

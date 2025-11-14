@@ -1,11 +1,9 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles, Target, Zap, Brain } from "lucide-react";
 import Tagline from "./Tagline";
 
 const Hero = () => {
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   // Generate starfield
   const stars = Array.from({ length: 80 }, (_, i) => ({
@@ -18,20 +16,20 @@ const Hero = () => {
   }));
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
-      {/* Professional Space-Time Grid */}
-      <div className="absolute inset-0 space-grid opacity-[0.15]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
+      {/* Professional Space-Time Grid - Reduced opacity */}
+      <div className="absolute inset-0 space-grid opacity-[0.05]" />
       
-      {/* Time-Continuum Nebula Clouds */}
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-primary/15 via-transparent to-transparent rounded-full blur-[200px] animate-nebula-drift" />
-      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-secondary/15 via-transparent to-transparent rounded-full blur-[180px] animate-nebula-drift" style={{ animationDelay: "-5s" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,hsl(var(--accent)/0.1),transparent)] rounded-full blur-[150px] animate-temporal-pulse" />
+      {/* Time-Continuum Nebula Clouds - Reduced opacity */}
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gradient-to-br from-primary/8 via-transparent to-transparent rounded-full blur-[200px] animate-nebula-drift" />
+      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-secondary/8 via-transparent to-transparent rounded-full blur-[180px] animate-nebula-drift" style={{ animationDelay: "-5s" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,hsl(var(--accent)/0.05),transparent)] rounded-full blur-[150px] animate-temporal-pulse" />
       
-      {/* Orbital Time Rings */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-primary/10 rounded-full animate-orbit" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-secondary/8 rounded-full animate-orbit-reverse" style={{ animationDuration: "35s" }} />
+      {/* Orbital Time Rings - Reduced opacity */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-primary/5 rounded-full animate-orbit" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-secondary/4 rounded-full animate-orbit-reverse" style={{ animationDuration: "35s" }} />
       
-      {/* Professional Starfield */}
+      {/* Professional Starfield - Reduced opacity */}
       <div className="absolute inset-0 overflow-hidden">
         {stars.map((star) => (
           <div
@@ -44,18 +42,18 @@ const Hero = () => {
               height: `${star.size}px`,
               animationDelay: `${star.delay}s`,
               animationDuration: `${star.duration}s`,
-              opacity: Math.random() * 0.5 + 0.3,
+              opacity: Math.random() * 0.2 + 0.1,
             }}
           />
         ))}
       </div>
       
-      {/* Time Flow Particles */}
+      {/* Time Flow Particles - Reduced opacity */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-20 bg-gradient-to-b from-primary/30 via-primary/60 to-transparent animate-time-flow"
+            className="absolute w-1 h-20 bg-gradient-to-b from-primary/15 via-primary/30 to-transparent animate-time-flow"
             style={{
               left: `${(i * 7) % 100}%`,
               top: `${Math.random() * 100}%`,
@@ -66,91 +64,93 @@ const Hero = () => {
         ))}
       </div>
       
+      {/* Background Image/Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Hero Background Image */}
+        <img 
+          src="/hero-bg.jpg" 
+          alt="Temporal Engineering Background" 
+          className="w-full h-full object-cover opacity-100"
+          onError={(e) => {
+            // Hide image if it fails to load, show fallback
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        
+        {/* Fallback placeholder - shows if image fails to load */}
+        <div className="w-full h-full bg-gradient-to-br from-primary/10 via-secondary/8 to-primary/10 flex items-center justify-center absolute inset-0" style={{ display: 'none' }}>
+          <div className="text-center p-8 space-y-4 opacity-40">
+            <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl border-2 border-primary/30 flex items-center justify-center">
+              <Sparkles className="h-10 w-10 text-primary/60" />
+            </div>
+            <p className="text-sm text-muted-foreground font-medium">
+              Hero background image
+            </p>
+          </div>
+        </div>
+        
+        {/* Very light overlay for text readability - minimal opacity */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/8 via-background/5 to-background/8" />
+      </div>
+
       <div className="container mx-auto px-4 z-10 relative">
-        <div className="text-center space-y-10 animate-slide-up">
-          <div className="space-y-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight leading-none text-primary">
-              Ismael Kaleeba
-            </h1>
-            
-            <div className="space-y-4">
-              <p className="text-3xl md:text-5xl lg:text-6xl text-foreground font-bold tracking-tight">
-                Conquering Time Through
-              </p>
-              <p className="text-3xl md:text-5xl lg:text-6xl font-bold">
-                <span className="time-gradient-text">Temporal Engineering</span>
-              </p>
-              <p className="text-xl md:text-2xl text-primary/80 italic font-light mt-4">
-                Eliminating Risk • Mastering the Continuum • Shaping the Future
-              </p>
-            </div>
-            
-            {/* Branded Tagline - Prominent Display */}
-            <div className="mt-8 md:mt-12">
-              <Tagline variant="large" />
-            </div>
-          </div>
-          
-          <p className="text-lg md:text-xl text-foreground/85 max-w-4xl mx-auto leading-relaxed font-light px-4">
-            A dedicated researcher building AI systems that simulate time, predict outcomes, 
-            and explore alternate futures. Through temporal engineering, I'm working toward 
-            a world where preventable disasters are eliminated before they occur.
-          </p>
-          
-          {/* Professional Research Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-20">
-            <div className="group relative bg-card/70 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 hover:border-primary/50 hover:shadow-[0_0_50px_hsl(200_100%_45%_/_0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 group-hover:scale-110 transition-transform">
-                  <Target className="h-8 w-8 text-primary" />
+        <div className="flex items-center justify-center min-h-[80vh] animate-slide-up">
+          <div className="text-center space-y-8 max-w-4xl">
+            {/* Content Container with Enhanced Visibility - More Human Feel */}
+            <div className="relative space-y-6 p-8 md:p-12 rounded-2xl backdrop-blur-md bg-background/60 border border-primary/20 shadow-lg" style={{ 
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)'
+            }}>
+              {/* Subtle glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-secondary/5 to-primary/8 rounded-2xl blur-xl -z-10" />
+              
+              <div className="space-y-6 relative z-10">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-normal leading-tight text-primary" style={{ 
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  textShadow: '0 2px 10px rgba(0, 0, 0, 0.2), 0 0 20px hsl(var(--primary) / 0.3)'
+                }}>
+                  Ismael Kaleeba
+                </h1>
+                
+                <div className="space-y-3">
+                  <p className="text-2xl md:text-4xl lg:text-5xl text-foreground font-semibold tracking-normal drop-shadow-[0_2px_15px_rgba(0,0,0,0.7)]" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                    Building systems that learn from the future
+                  </p>
+                  <p className="text-xl md:text-2xl lg:text-3xl text-foreground/80 font-normal italic mt-2">
+                    to improve the past
+                  </p>
                 </div>
-                <div className="text-5xl font-bold text-primary mb-1">Mission</div>
-                <div className="text-sm text-muted-foreground font-medium">Eliminating Risk Through R&D</div>
+                
+                {/* Branded Tagline - More Natural */}
+                <div className="pt-6">
+                  <Tagline variant="default" />
+                </div>
               </div>
             </div>
             
-            <div className="group relative bg-card/70 backdrop-blur-xl border border-secondary/20 rounded-2xl p-8 hover:border-secondary/50 hover:shadow-[0_0_50px_hsl(195_100%_60%_/_0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-xl border border-secondary/30 group-hover:scale-110 transition-transform">
-                  <Brain className="h-8 w-8 text-secondary" />
+                {/* Action Buttons with Enhanced Visibility */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 relative z-10">
+                  <Link to="/projects">
+                    <Button 
+                      size="lg" 
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-5 text-base group shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-[1.02] rounded-xl"
+                      style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                    >
+                      <Sparkles className="mr-2 h-4 w-4" />
+                      See My Work
+                      <ArrowDown className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button 
+                      size="lg" 
+                      variant="outline"
+                      className="border-2 border-primary/50 hover:bg-primary/10 hover:border-primary/70 bg-background/60 backdrop-blur-sm px-8 py-5 text-base font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] rounded-xl"
+                      style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                    >
+                      Get in Touch
+                    </Button>
+                  </Link>
                 </div>
-                <div className="text-5xl font-bold text-secondary mb-1">Research</div>
-                <div className="text-sm text-muted-foreground font-medium">Temporal Intelligence Systems</div>
-              </div>
-            </div>
-            
-            <div className="group relative bg-card/70 backdrop-blur-xl border border-accent/20 rounded-2xl p-8 hover:border-accent/50 hover:shadow-[0_0_50px_hsl(195_100%_70%_/_0.3)] transition-all duration-500 hover:scale-105 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl border border-accent/30 group-hover:scale-110 transition-transform">
-                  <Zap className="h-8 w-8 text-accent" />
-                </div>
-                <div className="text-5xl font-bold text-accent mb-1">Innovation</div>
-                <div className="text-sm text-muted-foreground font-medium">Continuous Learning & Development</div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-20">
-            <Button 
-              size="lg" 
-              onClick={scrollToProjects}
-              className="bg-gradient-to-r from-primary via-secondary to-primary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-bold px-12 py-7 text-lg group shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all duration-300 hover:scale-105"
-            >
-              <Sparkles className="mr-2 h-5 w-5 group-hover:rotate-180 transition-transform duration-500" />
-              Explore Research
-              <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="border-2 border-primary/50 hover:bg-primary/10 hover:border-primary px-12 py-7 text-lg font-bold backdrop-blur-sm"
-            >
-              Connect
-            </Button>
           </div>
         </div>
       </div>

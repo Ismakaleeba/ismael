@@ -21,17 +21,15 @@ const CityClockSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold">
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              Temporal Horizon
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+            <span className="text-primary">
+              A Look Ahead
             </span>
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            A glimpse into the future, displayed on the city's central temporal clock.
-            <br className="hidden md:block" />
-            Five years ahead, counting every second.
+          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+            Here's what the clock shows — five years from now, ticking forward in real time.
           </p>
-          <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+          <div className="h-0.5 w-16 bg-primary/40 mx-auto rounded-full" />
         </div>
 
         {/* City Clock Display */}
@@ -40,9 +38,9 @@ const CityClockSection = () => {
         </div>
 
         {/* Additional context text */}
-        <div className="mt-12 text-center">
-          <p className="text-xs md:text-sm text-muted-foreground italic max-w-2xl mx-auto">
-            Hover over the clock to explore alternative timelines and future scenarios.
+        <div className="mt-10 text-center">
+          <p className="text-xs text-muted-foreground max-w-xl mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+            Hover to see different timelines
           </p>
         </div>
       </div>

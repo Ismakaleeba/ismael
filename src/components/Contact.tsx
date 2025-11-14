@@ -12,61 +12,76 @@ const Contact = () => {
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold">
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              Let's Build the Future Together
-            </span>
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            I'm always looking to connect with mentors, collaborators, and fellow researchers 
-            who share the vision of eliminating risk through technology.
-          </p>
-          <div className="h-1 w-32 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+        {/* Varied alignment - left aligned */}
+        <div className="space-y-4 mb-12 max-w-4xl">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="flex-1">
+              <h2 className="text-3xl md:text-5xl font-semibold mb-3" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <span className="text-primary">
+                  Let's Connect
+                </span>
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                Always happy to chat with mentors, collaborators, or anyone curious about this work.
+              </p>
+            </div>
+            {/* Side image */}
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden shadow-lg border border-primary/20 flex-shrink-0">
+              <img 
+                src="/hero-bg.jpg" 
+                alt="Contact" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+          <div className="h-0.5 w-20 bg-primary/40 rounded-full" />
         </div>
         
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Main CTA Card */}
-          <Card className="bg-card/60 backdrop-blur-md border-border p-8 md:p-10">
-            <div className="text-center space-y-6">
-              <div className="inline-block p-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl border border-primary/30">
-                <MessageCircle className="h-8 w-8 text-primary" />
-              </div>
+          <Card className="bg-card/40 backdrop-blur-sm border border-primary/15 p-6 md:p-8 shadow-sm">
+            <div className="text-center space-y-5">
+              <MessageCircle className="h-6 w-6 text-primary mx-auto" />
               <div className="space-y-3">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Interested in Collaborating?
+                <h3 className="text-xl md:text-2xl font-semibold text-foreground" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                  Want to collaborate?
                 </h3>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Whether you're a researcher, mentor, potential collaborator, or just curious about 
-                  temporal engineering — I'd love to hear from you. Every conversation brings new perspectives 
-                  and moves us closer to a risk-free future.
+                <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                  If you're working on similar stuff, or just want to chat about temporal engineering, 
+                  I'd love to hear from you. Always open to new ideas and perspectives.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-3">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-semibold px-8 py-6 text-lg shadow-lg shadow-primary/30"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 py-4 text-base shadow-md rounded-xl"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Send an Email
+                  <Mail className="h-4 w-4 mr-2" />
+                  Send Email
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-primary/50 hover:bg-primary/10 px-8 py-6 text-lg font-semibold"
+                  className="border border-primary/40 hover:bg-primary/10 px-6 py-4 text-base font-medium rounded-xl"
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
-                  <Handshake className="h-5 w-5 mr-2" />
-                  Discuss Collaboration
+                  <Handshake className="h-4 w-4 mr-2" />
+                  Let's Talk
                 </Button>
               </div>
             </div>
           </Card>
           
           {/* Social Links */}
-          <Card className="bg-card/60 backdrop-blur-md border-border p-8">
-            <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-foreground text-center">
-                Connect on Social Media
+          <Card className="bg-card/40 backdrop-blur-sm border border-primary/15 p-6 shadow-sm">
+            <div className="space-y-5">
+              <h3 className="text-lg font-medium text-foreground text-center" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                Find me online
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <Button
@@ -106,14 +121,11 @@ const Contact = () => {
           </Card>
           
           {/* Mission Statement */}
-          <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 backdrop-blur-sm border border-primary/30 rounded-2xl p-8 text-center">
-            <div className="inline-block p-3 bg-primary/20 rounded-lg mb-4">
-              <Rocket className="h-6 w-6 text-primary" />
-            </div>
-            <p className="text-lg text-foreground/90 leading-relaxed max-w-2xl mx-auto">
-              <span className="font-semibold text-primary">My mission is clear:</span> To eliminate preventable risks 
-              from our world through research and development. If you share this vision or want to help a passionate 
-              student researcher, let's connect. Together, we can build a safer future.
+          <div className="bg-card/30 backdrop-blur-sm border border-primary/15 rounded-xl p-6 text-center">
+            <Rocket className="h-5 w-5 text-primary mx-auto mb-3" />
+            <p className="text-base text-foreground/85 leading-relaxed max-w-xl mx-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+              <span className="font-medium text-primary">The goal is simple:</span> Stop preventable disasters before they happen. 
+              If that sounds interesting to you, or you want to help out, let's talk.
             </p>
           </div>
         </div>

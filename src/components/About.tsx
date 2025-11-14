@@ -13,178 +13,188 @@ const About = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto space-y-20">
-          <div className="text-center space-y-6">
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight">
-              <span className="time-gradient-text">
-                The Mission
-              </span>
+          <div className="space-y-6 max-w-4xl">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+              <div className="flex-1">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-normal mb-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                  <span className="text-primary">
+                    About Me
+                  </span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light">
-              Conquering time through research and engineering to eliminate preventable risks
-            </p>
-            <div className="h-1.5 w-40 bg-gradient-to-r from-primary via-secondary to-primary mx-auto rounded-full shadow-lg shadow-primary/30" />
+                <p className="text-lg md:text-xl text-muted-foreground font-normal leading-relaxed">
+                  I'm building AI systems that help us understand what might happen before it does
+                </p>
+              </div>
+              {/* Side image - more organic placement */}
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shadow-lg border border-primary/20 flex-shrink-0">
+                <img 
+                  src="/profile.jpg" 
+                  alt="Ismael" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+            </div>
+            <div className="h-1 w-24 bg-primary/40 rounded-full" />
           </div>
           
-          {/* Professional Role Badge */}
+          {/* Role Badge - More Natural */}
           <div className="flex justify-center">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 backdrop-blur-md border border-primary/30 rounded-full text-sm text-primary font-medium shadow-lg shadow-primary/10">
-              <Clock className="h-4 w-4 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/8 border border-primary/20 rounded-full text-sm text-primary font-normal">
+              <Clock className="h-3.5 w-3.5" />
               <span>Temporal Engineering Researcher • AI Systems Developer</span>
             </div>
           </div>
           
-          {/* Professional Image Section - Large & Integrated */}
-          <div className="flex justify-center -my-8">
-            <div className="relative group">
-              {/* Glow effect behind image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-secondary/30 to-primary/30 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-150" />
-              
-              {/* Large Image Container - No background, blends with page */}
-              <div className="relative">
-                <div className="w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full overflow-hidden shadow-2xl shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-500 group-hover:scale-105 remove-white-bg">
-                  <img 
-                    src="/profile.jpg" 
-                    alt="Ismael Kaleeba - Temporal Engineering Researcher" 
-                    className="w-full h-full object-cover"
-                    style={{
-                      filter: 'brightness(0.98) contrast(1.1) saturate(1.05)',
-                    }}
-                    onError={(e) => {
-                      // Show placeholder if image fails to load
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const placeholder = target.parentElement?.nextElementSibling as HTMLElement;
-                      if (placeholder) placeholder.style.display = 'flex';
-                    }}
-                  />
+          {/* Image Section - Varied alignment */}
+          <div className="flex flex-col md:flex-row items-start gap-8 -my-8">
+            {/* Main image - left aligned on desktop */}
+            <div className="relative group flex-shrink-0">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl border border-primary/20 group-hover:shadow-2xl transition-all duration-300 group-hover:scale-[1.02]">
+                <img 
+                  src="/profile.jpg" 
+                  alt="Ismael Kaleeba" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+              {/* Decorative elements - organic placement */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-xl blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-xl blur-xl" />
+            </div>
+            
+            {/* Side content - right aligned */}
+            <div className="flex-1 pt-8">
+              <div className="space-y-4">
+                <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
+                  <p className="text-sm text-primary font-medium">Currently working on</p>
                 </div>
-                {/* Fallback placeholder */}
-                <div className="w-72 h-72 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center relative hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.2),transparent)] rounded-full" />
-                  <div className="relative z-10 text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border-4 border-primary/50 flex items-center justify-center shadow-lg">
-                      <GraduationCap className="h-16 w-16 text-primary" />
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-2 font-medium">
-                      Add profile.jpg to public folder
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Subtle border glow */}
-                <div className="absolute inset-0 rounded-full border-2 border-primary/20 group-hover:border-primary/40 transition-all duration-500 pointer-events-none" />
-                
-                {/* Decorative glow elements */}
-                <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse" />
-                <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-secondary/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "1s" }} />
+                <p className="text-base text-foreground/80 leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                  Building digital twins and AI simulations. Each project teaches me something new about how to predict and prevent disasters.
+                </p>
               </div>
             </div>
           </div>
           
-          <div className="space-y-10 text-lg md:text-xl leading-relaxed text-foreground/90">
-            <div className="relative bg-card/60 backdrop-blur-xl border border-primary/20 rounded-3xl p-10 md:p-12 space-y-8 shadow-2xl shadow-primary/5 hover:border-primary/40 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
+          <div className="space-y-8 text-base md:text-lg leading-relaxed text-foreground/85" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+            {/* Varied alignment - left aligned */}
+            <div className="relative bg-card/50 backdrop-blur-sm border border-primary/15 rounded-2xl p-8 md:p-10 space-y-6 shadow-md hover:border-primary/30 transition-all duration-300 max-w-3xl">
               <div className="relative">
-                <p className="text-2xl md:text-3xl font-bold text-primary mb-6 flex items-center gap-3">
-                  <Target className="h-7 w-7" />
-                  Why I Dedicate My Life to Temporal Engineering
+                <p className="text-xl md:text-2xl font-semibold text-primary mb-5 flex items-center gap-2">
+                  <Target className="h-5 w-5" />
+                  Why I do this
                 </p>
-                <div className="space-y-5">
+                <div className="space-y-4">
                   <p>
-                    Every day, we witness preventable disasters — natural catastrophes, accidents, conflicts, 
-                    and crises that could have been avoided. As a researcher, I asked:{" "}
-                    <span className="text-primary font-bold">What if we could see these events coming?</span>{" "}
-                    What if we could test solutions in simulated worlds before implementing them in reality?
+                    I've always been bothered by preventable disasters — accidents, conflicts, crises that could have been avoided. 
+                    So I started asking:{" "}
+                    <span className="text-primary font-semibold">What if we could see these coming?</span>{" "}
+                    What if we could test solutions in simulations before trying them in the real world?
                   </p>
                   
+                  {/* Inline image */}
+                  <div className="my-6 flex justify-end">
+                    <div className="w-48 h-32 rounded-xl overflow-hidden shadow-lg border border-primary/20">
+                      <img 
+                        src="/hero-bg.jpg" 
+                        alt="Working on simulations" 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  </div>
+                  
                   <p>
-                    This question led me to <span className="text-secondary font-bold">Temporal Engineering</span> — 
-                    the discipline of building AI systems that simulate time, predict outcomes, and explore alternate futures. 
-                    By creating digital twins of real environments and training AI agents to model complex scenarios, 
-                    we can identify and eliminate risks before they materialize.
+                    That's how I got into <span className="text-secondary font-semibold">temporal engineering</span> — 
+                    building AI systems that simulate time and explore different futures. 
+                    I create digital replicas of real places and train AI agents to model what might happen. 
+                    The idea is to spot problems before they become real problems.
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="group relative bg-card/60 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 space-y-5 hover:border-primary/50 hover:shadow-[0_0_40px_hsl(200_100%_45%_/_0.25)] transition-all duration-500 hover:scale-[1.02]">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Varied grid - not perfectly aligned */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="group relative bg-card/40 backdrop-blur-sm border border-primary/15 rounded-xl p-6 space-y-4 hover:border-primary/30 transition-all duration-300">
                 <div className="relative">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl border border-primary/30 group-hover:scale-110 transition-transform">
-                      <Target className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-primary">The Goal</h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Target className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-semibold text-primary">What I'm aiming for</h3>
                   </div>
-                  <p className="text-foreground/85 leading-relaxed">
-                    To eliminate preventable risks from our world through rigorous research and development. 
-                    Every simulation I build, every AI system I train, brings us closer to a future 
-                    where disasters are prevented before they happen.
+                  <p className="text-foreground/80 leading-relaxed text-sm md:text-base mb-4">
+                    To stop preventable disasters before they happen. Each simulation I build helps us understand 
+                    what could go wrong, so we can fix it before it becomes real.
                   </p>
+                  {/* Small image in card */}
+                  <div className="w-full h-24 rounded-lg overflow-hidden border border-primary/10">
+                    <img 
+                      src="/hero-bg.jpg" 
+                      alt="Simulation work" 
+                      className="w-full h-full object-cover opacity-60"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
               
-              <div className="group relative bg-card/60 backdrop-blur-xl border border-secondary/20 rounded-2xl p-8 space-y-5 hover:border-secondary/50 hover:shadow-[0_0_40px_hsl(195_100%_60%_/_0.25)] transition-all duration-500 hover:scale-[1.02]">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="group relative bg-card/40 backdrop-blur-sm border border-secondary/15 rounded-xl p-6 space-y-4 hover:border-secondary/30 transition-all duration-300 md:mt-8">
                 <div className="relative">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-xl border border-secondary/30 group-hover:scale-110 transition-transform">
-                      <Lightbulb className="h-6 w-6 text-secondary" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-secondary">The Approach</h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Lightbulb className="h-5 w-5 text-secondary" />
+                    <h3 className="text-xl font-semibold text-secondary">How I'm doing it</h3>
                   </div>
-                  <p className="text-foreground/85 leading-relaxed">
-                    Combining game engines (Unity, Unreal), AI/ML frameworks, and simulation theory 
-                    to create living digital worlds. These environments enable us to test "what-if" scenarios 
-                    safely, learning from virtual experiences before facing real consequences.
+                  <p className="text-foreground/80 leading-relaxed text-sm md:text-base">
+                    Using game engines like Unity and Unreal, plus AI frameworks, to build digital worlds 
+                    where we can safely test ideas. It's like having a practice run before the real thing.
                   </p>
                 </div>
               </div>
-            </div>
-            
-            <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 backdrop-blur-sm border border-primary/30 rounded-2xl p-8 my-8">
-              <p className="text-xl text-center italic text-primary/90 font-medium leading-relaxed">
-                "Every breakthrough starts with someone who refused to wait for permission to change the world. 
-                Through temporal engineering, we can master time and eliminate risk before it materializes."
-              </p>
             </div>
           </div>
           
-          {/* Enhanced Bio Box */}
-          <div className="bg-card/60 backdrop-blur-md border border-border rounded-2xl p-8 mt-12 shadow-xl">
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="p-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl border border-primary/30">
-                  <GraduationCap className="h-8 w-8 text-primary" />
-                </div>
+          {/* Bio Box - More Personal */}
+          <div className="bg-card/40 backdrop-blur-sm border border-primary/15 rounded-xl p-6 md:p-8 mt-10 shadow-sm">
+            <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <GraduationCap className="h-6 w-6 text-primary" />
                 <div>
-                  <h3 className="text-3xl font-bold text-foreground">Ismael Kaleeba</h3>
-                  <p className="text-muted-foreground">Temporal Engineering Researcher • AI Systems Developer</p>
+                  <h3 className="text-2xl font-semibold text-foreground">A bit about me</h3>
+                  <p className="text-sm text-muted-foreground">Temporal Engineering Researcher • AI Systems Developer</p>
                 </div>
               </div>
               
-              <p className="text-foreground/90 leading-relaxed text-lg">
-                A dedicated researcher focused on temporal intelligence and AI systems development. 
-                I build AI simulations, digital twins, and predictive models that could one day save lives. 
-                My work centers on eliminating preventable risks through rigorous research, continuous learning, 
-                and innovative approaches to temporal engineering — all in service of a risk-free future.
+              <p className="text-foreground/85 leading-relaxed text-base" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                I'm building AI simulations and digital replicas that help us see what might happen before it does. 
+                The goal is simple: prevent disasters by understanding them first. Right now, I'm working on projects 
+                that combine game engines, AI, and simulation theory to create safe testing environments.
               </p>
               
-              <div className="pt-4">
-                <p className="text-sm text-muted-foreground mb-4 font-semibold">Technologies I'm Learning & Using:</p>
-                <div className="flex flex-wrap gap-3">
+              <div className="pt-3">
+                <p className="text-sm text-muted-foreground mb-3 font-medium">Things I'm working with:</p>
+                <div className="flex flex-wrap gap-2">
                   {[
-                    "Python", "Unity", "Unreal Engine", "AI/ML", 
-                    "Temporal Modeling", "Digital Twins", "Reinforcement Learning",
-                    "Simulation Theory", "Game Development", "Data Science"
+                    "Python", "Unity", "Unreal", "AI/ML", 
+                    "Digital Twins", "Simulations", "Game Dev"
                   ].map((tech) => (
                     <span
                       key={tech}
-                      className="px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-sm text-primary hover:bg-primary/20 transition-colors"
+                      className="px-3 py-1.5 bg-primary/8 border border-primary/20 rounded-full text-xs text-primary hover:bg-primary/15 transition-colors"
                     >
                       {tech}
-                    </span>
+                  </span>
                   ))}
                 </div>
               </div>
@@ -209,7 +219,7 @@ const About = () => {
               <div className="flex flex-col items-center gap-3">
                 <div className="w-24 h-24 rounded-full bg-secondary/20 border-3 border-secondary flex items-center justify-center animate-glow-pulse shadow-lg shadow-secondary/30">
                   <span className="text-base font-bold text-secondary">Now</span>
-                </div>
+            </div>
                 <p className="text-sm text-muted-foreground text-center max-w-[120px] font-semibold">
                   Building & Researching
                 </p>
@@ -221,7 +231,7 @@ const About = () => {
               <div className="flex flex-col items-center gap-3">
                 <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center shadow-lg shadow-primary/20">
                   <Heart className="h-5 w-5 text-primary" />
-                </div>
+            </div>
                 <p className="text-sm text-muted-foreground text-center max-w-[120px]">
                   Risk-free future
                 </p>

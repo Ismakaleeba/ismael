@@ -87,80 +87,121 @@ const Manifesto = () => {
       }} />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6">
-            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-              The God of Time
-            </span>
-          </h2>
-          <div className="h-1 w-32 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+        {/* Title - Varied alignment */}
+        <div className="mb-12 max-w-4xl">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="flex-1">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <span className="text-primary">
+                  The God of Time
+                </span>
+              </h2>
+            </div>
+            {/* Side image */}
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden shadow-lg border border-primary/20 flex-shrink-0">
+              <img 
+                src="/hero-bg.jpg" 
+                alt="Temporal Engineering" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+          <div className="h-0.5 w-20 bg-primary/40 rounded-full mt-4" />
         </div>
 
         {/* Manifesto Content */}
         <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
-          {/* Opening Statement */}
-          <div className="text-lg md:text-xl text-foreground/90 leading-relaxed space-y-4">
-            <p className="font-semibold text-primary">
-              Throughout history, humanity has faced events beyond its control — sudden crises, conflicts, and disasters. 
-              These moments reveal a truth: <span className="text-secondary font-bold">time is the ultimate power</span>, and we have yet to master it.
-            </p>
+          {/* Opening Statement - Left aligned with image */}
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <div className="flex-1 text-base md:text-lg text-foreground/85 leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+              <p>
+                History is full of disasters we couldn't stop — crises, conflicts, accidents that caught us off guard. 
+                It made me realize: <span className="text-primary font-semibold">time is the real power here</span>, and we're still learning how to work with it.
+              </p>
+            </div>
+            {/* Side image */}
+            <div className="w-40 h-32 md:w-48 md:h-36 rounded-xl overflow-hidden shadow-lg border border-primary/20 flex-shrink-0">
+              <img 
+                src="/hero-bg.jpg" 
+                alt="History and time" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
           </div>
 
-          {/* Mission Statement */}
-          <div className="relative bg-gradient-to-br from-card/80 via-card/60 to-card/80 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 md:p-12 shadow-xl">
-            <div className="absolute top-4 right-4">
-              <Sparkles className="h-8 w-8 text-primary/40" />
-            </div>
-            <div className="space-y-6 text-base md:text-lg text-foreground/85 leading-relaxed">
-              <p>
-                <span className="font-bold text-primary text-xl">I have decided not to wait for the future.</span> I will move ahead of time. 
-                I aim to build <span className="font-semibold text-secondary">Temporal Intelligence</span> — the science of simulating, 
-                predicting, and shaping events across time.
-              </p>
-              <p>
-                My mission is to <span className="font-semibold">eliminate preventable risks</span>, test "what-if" scenarios, 
-                and create worlds where people can explore, learn, and improve without suffering unnecessary consequences.
-              </p>
+          {/* Mission Statement - Right aligned with image */}
+          <div className="relative bg-card/50 backdrop-blur-sm border border-primary/15 rounded-xl p-6 md:p-8 shadow-md">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              {/* Image on left */}
+              <div className="w-full md:w-48 h-32 md:h-40 rounded-lg overflow-hidden border border-primary/10 flex-shrink-0">
+                <img 
+                  src="/hero-bg.jpg" 
+                  alt="Building temporal intelligence" 
+                  className="w-full h-full object-cover opacity-70"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+              </div>
+              <div className="flex-1 space-y-4 text-base md:text-lg text-foreground/85 leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <p>
+                  <span className="font-semibold text-primary text-lg">I'm not waiting around.</span> I want to get ahead of time. 
+                  That's why I'm building <span className="font-medium text-secondary">temporal intelligence</span> — systems that simulate, 
+                  predict, and help shape what happens next.
+                </p>
+                <p>
+                  The goal? <span className="font-medium">Stop preventable disasters</span>, test different scenarios safely, 
+                  and create spaces where we can learn and experiment without real-world consequences.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Work Description */}
-          <div className="space-y-6 text-base md:text-lg text-foreground/85 leading-relaxed">
+          <div className="space-y-4 text-base md:text-lg text-foreground/85 leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             <p>
-              I have begun by prototyping <span className="font-semibold text-primary">digital twins</span> of real environments, 
-              building <span className="font-semibold text-secondary">AI systems</span> to simulate historical events, 
-              and developing <span className="font-semibold text-accent">intelligent agents</span> that interact with living 
-              simulations of people, places, and decisions.
+              Right now, I'm working on <span className="font-medium text-primary">digital replicas</span> of real places, 
+              building <span className="font-medium text-secondary">AI systems</span> that can simulate what happened in history, 
+              and creating <span className="font-medium text-accent">smart agents</span> that can interact with these simulated 
+              worlds — testing ideas before they hit reality.
             </p>
           </div>
 
           {/* Guardian Statement */}
-          <div className="relative bg-gradient-to-br from-secondary/10 via-primary/10 to-secondary/10 backdrop-blur-xl border-2 border-secondary/30 rounded-2xl p-8 md:p-12 shadow-xl">
-            <div className="absolute top-4 left-4">
-              <Shield className="h-8 w-8 text-secondary/40" />
+          <div className="relative bg-card/40 backdrop-blur-sm border border-secondary/20 rounded-xl p-6 md:p-8 shadow-sm">
+            <div className="flex items-center justify-center mb-4">
+              <Shield className="h-6 w-6 text-secondary/60" />
             </div>
-            <p className="text-xl md:text-2xl font-bold text-center text-foreground leading-relaxed">
-              The real guardians of the galaxy do not merely protect space. They{" "}
-              <span className="text-primary">learn from the future</span>,{" "}
-              <span className="text-secondary">understand the past</span>, and{" "}
-              <span className="text-accent">act decisively in the present</span>.
+            <p className="text-lg md:text-xl font-medium text-center text-foreground leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+              The real guardians don't just protect — they{" "}
+              <span className="text-primary font-semibold">learn from the future</span>,{" "}
+              <span className="text-secondary font-semibold">understand the past</span>, and{" "}
+              <span className="text-accent font-semibold">act in the present</span>.
               <br />
-              <span className="text-2xl md:text-3xl mt-4 block">I am determined to be one of them.</span>
+              <span className="text-xl md:text-2xl mt-3 block font-semibold">That's what I'm aiming for.</span>
             </p>
           </div>
 
           {/* Closing Statement */}
-          <div className="text-center py-8 space-y-6">
-            <p className="text-2xl md:text-4xl font-black text-primary">
-              Time is not just something we experience —{" "}
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                it is something we can master.
+          <div className="text-center py-6 space-y-5">
+            <p className="text-xl md:text-2xl font-semibold text-primary leading-relaxed" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+              Time isn't just something that happens to us —{" "}
+              <span className="text-secondary">
+                we can learn to work with it.
               </span>
             </p>
             
             {/* Branded Tagline */}
-            <div className="pt-6 border-t border-primary/20">
+            <div className="pt-5 border-t border-primary/15">
               <Tagline variant="default" />
             </div>
           </div>
