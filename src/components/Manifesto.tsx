@@ -19,6 +19,7 @@ import {
   CircuitBoard,
   LucideIcon
 } from "lucide-react";
+import Tagline from "./Tagline";
 
 interface TechStackItemProps {
   icon: LucideIcon;
@@ -150,13 +151,18 @@ const Manifesto = () => {
           </div>
 
           {/* Closing Statement */}
-          <div className="text-center py-8">
+          <div className="text-center py-8 space-y-6">
             <p className="text-2xl md:text-4xl font-black text-primary">
               Time is not just something we experience —{" "}
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 it is something we can master.
               </span>
             </p>
+            
+            {/* Branded Tagline */}
+            <div className="pt-6 border-t border-primary/20">
+              <Tagline variant="default" />
+            </div>
           </div>
 
           {/* Animated Timeline */}

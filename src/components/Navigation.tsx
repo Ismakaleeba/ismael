@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles } from "lucide-react";
+import Tagline from "./Tagline";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,10 +66,15 @@ const Navigation = () => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 setActiveSection("");
               }}
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent hover:opacity-80 transition-all duration-300 flex items-center gap-2 group"
+              className="flex flex-col items-start gap-0.5 group"
             >
-              <Sparkles className="h-5 w-5 text-primary group-hover:animate-twinkle" />
-              <span>Ismael Kaleeba</span>
+              <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent hover:opacity-80 transition-all duration-300 flex items-center gap-2">
+                <Sparkles className="h-5 w-5 text-primary group-hover:animate-twinkle" />
+                <span>Ismael Kaleeba</span>
+              </div>
+              {isScrolled && (
+                <Tagline variant="minimal" showIcon={false} className="hidden md:flex" />
+              )}
             </button>
 
             {/* Desktop Navigation */}

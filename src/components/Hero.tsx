@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles, Target, Zap, Brain } from "lucide-react";
+import Tagline from "./Tagline";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -82,9 +83,11 @@ const Hero = () => {
               <p className="text-xl md:text-2xl text-primary/80 italic font-light mt-4">
                 Eliminating Risk • Mastering the Continuum • Shaping the Future
               </p>
-              <p className="text-lg md:text-xl text-foreground/80 italic font-light mt-6">
-                "Learn from the future, improve the past."
-              </p>
+            </div>
+            
+            {/* Branded Tagline - Prominent Display */}
+            <div className="mt-8 md:mt-12">
+              <Tagline variant="large" />
             </div>
           </div>
           

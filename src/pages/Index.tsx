@@ -7,6 +7,7 @@ import Projects from "@/components/Projects";
 import Research from "@/components/Research";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
+import Tagline from "@/components/Tagline";
 
 const Index = () => {
   return (
@@ -25,13 +26,18 @@ const Index = () => {
       <footer className="border-t border-primary/20 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/20 backdrop-blur-sm py-12 mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-6">
-            <div className="space-y-2">
+            <div className="space-y-4">
               <h3 className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Ismael Kaleeba
               </h3>
               <p className="text-sm text-muted-foreground">
                 Temporal Engineering Researcher • AI Systems Developer
               </p>
+              
+              {/* Branded Tagline in Footer */}
+              <div className="py-4">
+                <Tagline variant="default" />
+              </div>
             </div>
             <p className="text-sm text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               Dedicated to eliminating preventable risks through research and development. 
