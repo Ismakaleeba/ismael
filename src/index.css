@@ -135,4 +135,142 @@
     /* Additional filter for white background removal attempt */
     filter: brightness(0.98) contrast(1.1) saturate(1.05);
   }
+
+  /* Futuristic Neon Clock Styles */
+  .neon-text {
+    text-shadow: 
+      0 0 10px hsl(var(--primary) / 0.8),
+      0 0 20px hsl(var(--primary) / 0.6),
+      0 0 30px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--primary) / 0.3);
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .neon-text-subtle {
+    text-shadow: 
+      0 0 8px hsl(var(--accent) / 0.7),
+      0 0 15px hsl(var(--accent) / 0.5),
+      0 0 25px hsl(var(--accent) / 0.3);
+    animation: neon-pulse-subtle 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes neon-pulse {
+    from {
+      text-shadow: 
+        0 0 10px hsl(var(--primary) / 0.8),
+        0 0 20px hsl(var(--primary) / 0.6),
+        0 0 30px hsl(var(--primary) / 0.4),
+        0 0 40px hsl(var(--primary) / 0.3);
+    }
+    to {
+      text-shadow: 
+        0 0 15px hsl(var(--primary) / 1),
+        0 0 30px hsl(var(--primary) / 0.8),
+        0 0 45px hsl(var(--primary) / 0.6),
+        0 0 60px hsl(var(--primary) / 0.4);
+    }
+  }
+
+  @keyframes neon-pulse-subtle {
+    from {
+      text-shadow: 
+        0 0 8px hsl(var(--accent) / 0.7),
+        0 0 15px hsl(var(--accent) / 0.5),
+        0 0 25px hsl(var(--accent) / 0.3);
+    }
+    to {
+      text-shadow: 
+        0 0 12px hsl(var(--accent) / 0.9),
+        0 0 20px hsl(var(--accent) / 0.7),
+        0 0 35px hsl(var(--accent) / 0.5);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  /* Futuristic City Clock Styles */
+  .city-clock-text {
+    text-shadow: 
+      0 0 15px hsl(var(--primary) / 0.9),
+      0 0 30px hsl(var(--primary) / 0.7),
+      0 0 45px hsl(var(--primary) / 0.5),
+      0 0 60px hsl(var(--primary) / 0.3),
+      0 0 80px hsl(var(--primary) / 0.2);
+    animation: city-clock-pulse 3s ease-in-out infinite alternate;
+    letter-spacing: 0.05em;
+  }
+
+  .city-clock-text-subtle {
+    text-shadow: 
+      0 0 10px hsl(var(--accent) / 0.8),
+      0 0 20px hsl(var(--accent) / 0.6),
+      0 0 35px hsl(var(--accent) / 0.4);
+    animation: city-clock-pulse-subtle 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes city-clock-pulse {
+    from {
+      text-shadow: 
+        0 0 15px hsl(var(--primary) / 0.9),
+        0 0 30px hsl(var(--primary) / 0.7),
+        0 0 45px hsl(var(--primary) / 0.5),
+        0 0 60px hsl(var(--primary) / 0.3),
+        0 0 80px hsl(var(--primary) / 0.2);
+    }
+    to {
+      text-shadow: 
+        0 0 20px hsl(var(--primary) / 1),
+        0 0 40px hsl(var(--primary) / 0.9),
+        0 0 60px hsl(var(--primary) / 0.7),
+        0 0 80px hsl(var(--primary) / 0.5),
+        0 0 100px hsl(var(--primary) / 0.3);
+    }
+  }
+
+  @keyframes city-clock-pulse-subtle {
+    from {
+      text-shadow: 
+        0 0 10px hsl(var(--accent) / 0.8),
+        0 0 20px hsl(var(--accent) / 0.6),
+        0 0 35px hsl(var(--accent) / 0.4);
+    }
+    to {
+      text-shadow: 
+        0 0 15px hsl(var(--accent) / 1),
+        0 0 30px hsl(var(--accent) / 0.8),
+        0 0 50px hsl(var(--accent) / 0.6);
+    }
+  }
+
+  /* Timeline Animation */
+  @keyframes timeline-flow {
+    0% {
+      transform: translateX(-100%) translateY(-50%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%) translateY(-50%);
+      opacity: 0;
+    }
+  }
+
+  .animate-timeline-flow {
+    animation: timeline-flow 3s ease-in-out infinite;
+  }
 }

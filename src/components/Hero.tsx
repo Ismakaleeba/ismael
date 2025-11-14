@@ -82,6 +82,9 @@ const Hero = () => {
               <p className="text-xl md:text-2xl text-primary/80 italic font-light mt-4">
                 Eliminating Risk • Mastering the Continuum • Shaping the Future
               </p>
+              <p className="text-lg md:text-xl text-foreground/80 italic font-light mt-6">
+                "Learn from the future, improve the past."
+              </p>
             </div>
           </div>
           
